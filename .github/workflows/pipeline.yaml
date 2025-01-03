@@ -76,7 +76,7 @@ jobs:
       - name: Port-forward ArgoCD service
         run: |
           kubectl port-forward svc/argocd-server -n argocd 8080:80 &
-          sleep 10  # Esperar un poco para asegurar que el port-forwarding esté funcionando
+          sleep 7
 
       - name: Set up ArgoCD CLI
         run: |
@@ -101,15 +101,6 @@ jobs:
       - name: Log in to ArgoCD
         run: |
           argocd login ${{ env.ARGOCD_SERVER }} --username admin --password ${{ env.ARGOCD_PASSWORD }} --insecure
-
-      - name: Verify if ArgoCD app exists
-        run: |
-          argocd app list
-          if ! argocd app get frontend-challenge-app; then
-            echo "Application frontend-challenge-app does not exist in ArgoCD. Creating the application."
-            kubectl apply -f k8s/argo-app.yaml
-            exit 0  # Continúa si se crea la aplicación
-          fi
 
       - name: Sync application with ArgoCD
         run: |
