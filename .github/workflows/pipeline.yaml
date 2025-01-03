@@ -113,7 +113,7 @@ jobs:
 
       - name: Sync application with ArgoCD
         run: |
-          argocd app sync frontend-challenge-app --prune --revision master
+          argocd app sync frontend-challenge-app --prune --revision main
           
       - name: Wait for deployment to complete
         run: |
