@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: 'https://github.com/JuanDiegoSic/frontend-challenge-base'
-    targetRevision: HEAD
+    targetRevision: main
     path: manifests
   project: default
   syncPolicy:
