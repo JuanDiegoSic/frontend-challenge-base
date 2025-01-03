@@ -67,6 +67,7 @@ jobs:
       - name: Apply RoleBinding to grant permissions to ArgoCD admin
         run: |
           kubectl apply -f k8s/rolebinding.yaml
+          kubectl apply -f k8s/argo-app.yaml
 
       - name: Wait for ArgoCD to be ready
         run: |
