@@ -61,4 +61,29 @@ La propuesta de diseño creada muestra un panorama de CI/CD que evidencia el flu
       1. Istio: Herramienta que opera toda la red del cluster, responsable de comunicar todos los recursos y asignar ips para identificarlos
       2. Control Plane: Gestiona el estado deseado del clúster y actúa como "cerebro" del sistema
       3. Load Balancer: Distribuye el tráfico de red entrante entre varios Pods o nodos de manera eficiente.
+
+
+---
+
+## 2. Implementación de un Pipeline CI/CD
+### Enunciado
+Crear un pipeline de CI/CD para una aplicación Node.js basado en el siguiente repositorio: GitHub - sport-enlace-sas/frontend-challenge-base
+
+- Clonar el repositorio desde GitHub.
+- Construir y testear la imagen Docker.
+- Publicar la imagen en un registry público/privado.
+- Desplegar la aplicación automáticamente en un clúster Kubernetes usando
+ArgoCD.
+
+### Solucion
+En este mismo repositorio se realizaron las modificaciones necesarias para el funcionamiento del pipeline y uso de ArgoCD
+![Creacion archivo Dokerfile y ejecucion de comando npm run build](https://github.com/user-attachments/assets/4e76eba4-26bf-412b-996c-763d8dfb352f)
+<img src="https://github.com/user-attachments/assets/4e76eba4-26bf-412b-996c-763d8dfb352f" alt="Descripción de la imagen" width="50"/>
+![FUncionamiento de proyecto](https://github.com/user-attachments/assets/d23ceb50-b64e-4c59-b0a5-8c2b2a1a38c0)
+![Pagina principal de proyecto](https://github.com/user-attachments/assets/db78414c-d815-4419-a823-4bb62a1d6fce)
+
+
+
+
+
   
