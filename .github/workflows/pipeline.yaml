@@ -64,6 +64,11 @@ jobs:
           kubectl create namespace argocd || echo "Namespace argocd already exists"
           kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
+      - name: Port-forward ArgoCD service
+        run: |
+          kubectl port-forward svc/argocd-server -n argocd 8080:80 &
+          sleep 5  # Esperar un poco para asegurar que el port-forwarding esté funcionando
+
       - name: Wait for ArgoCD to be ready
         run: |
           kubectl rollout status deployment/argocd-server -n argocd
