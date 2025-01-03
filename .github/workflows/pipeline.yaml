@@ -4,9 +4,9 @@ name: pipeline CI/CD
 
 on:
   push:
-    branches: [ "prueba2" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "prueba2" ]
+    branches: [ "main" ]
 
 jobs:
   build-CICD:
