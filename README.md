@@ -79,11 +79,11 @@ ArgoCD.
 En este mismo repositorio se realizaron las modificaciones necesarias para el funcionamiento del pipeline y uso de ArgoCD
 #### Ejecucion en local
 ![Creacion archivo Dokerfile y ejecucion de comando npm run build](https://github.com/user-attachments/assets/4e76eba4-26bf-412b-996c-763d8dfb352f)
-<img src="[https://github.com/user-attachments/assets/4e76eba4-26bf-412b-996c-763d8dfb352f]" width="70%"/>
+<img src="[https://github.com/user-attachments/assets/4e76eba4-26bf-412b-996c-763d8dfb352f]" width="40%"/>
 ![FUncionamiento de proyecto](https://github.com/user-attachments/assets/d23ceb50-b64e-4c59-b0a5-8c2b2a1a38c0)
-<img src="[https://github.com/user-attachments/assets/4e76eba4-26bf-412b-996c-763d8dfb352f](https://github.com/user-attachments/assets/d23ceb50-b64e-4c59-b0a5-8c2b2a1a38c0)" width="70%"/>
+<img src="[https://github.com/user-attachments/assets/4e76eba4-26bf-412b-996c-763d8dfb352f](https://github.com/user-attachments/assets/d23ceb50-b64e-4c59-b0a5-8c2b2a1a38c0)" width="40%"/>
 ![Pagina principal de proyecto](https://github.com/user-attachments/assets/db78414c-d815-4419-a823-4bb62a1d6fce)
-<img src="[https://github.com/user-attachments/assets/db78414c-d815-4419-a823-4bb62a1d6fce)" width="70%"/>
+<img src="[https://github.com/user-attachments/assets/db78414c-d815-4419-a823-4bb62a1d6fce)" width="40%"/>
 
 
 
