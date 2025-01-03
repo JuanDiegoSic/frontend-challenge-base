@@ -8,7 +8,7 @@ spec:
     namespace: default
     server: https://kubernetes.default.svc
   source:
-    repoURL: 'https://github.com/sport-enlace-sas/frontend-challenge-base'
+    repoURL: 'https://github.com/JuanDiegoSic/frontend-challenge-base'
     targetRevision: HEAD
     path: manifests
   project: default
