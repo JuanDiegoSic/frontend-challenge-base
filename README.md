@@ -1,4 +1,4 @@
-        # Prueba tecnica  - Solucion por Juan Diego Sicachá Cortes
+# Prueba tecnica  - Solucion por Juan Diego Sicachá Cortes
 
 Este repositorio contiene la solucion de los problemas planteados para la prueba tecnica de devops
 
@@ -120,5 +120,81 @@ En la carpeta "k8s" se crearon 4 archivos para el funcionamiento del servicio en
 - rolebinding.yaml: Se utiliza para crear un RoleBinding en Kubernetes, que asigna un Role o ClusterRole a un User. https://github.com/JuanDiegoSic/frontend-challenge-base/blob/main/k8s/rolebinding.yaml
 - service.yaml: recurso que expone una aplicación en ejecución en un conjunto de Pods como un servicio de red estable https://github.com/JuanDiegoSic/frontend-challenge-base/blob/main/k8s/service.yaml
 
+---
+
+## 3. Solución de Problemas
+### Enunciado
+Basado en el siguiente docker compose docker-compose.yaml , corregir el archivo que está mal construído y optimizado
+
+### Solucion
+EN el siguiente link van a ver el yaml optimizado y arreglado , cuanta con comentarios acerca de cada uno de los cambios: https://github.com/JuanDiegoSic/frontend-challenge-base/blob/main/docker-compose.yaml
+
+- **app:**
+  
+          app:
+            image: nginx:latest
+            ports:
+              - "8080:80"
+            environment:
+              NODE_ENV: "production"
+            depends_on:
+              database:
+                condition: service_healthy #Practica para garantizar que esta dependencia se cumpla correctamente cuando el contenedor database aparte de iniciar, pase una comprobacion de estado
+              - app_network
+            restart: unless-stopped  #Implementacion de reinicio para el contenedor, buena practica por si falla, le permite reiniciars
+
+  Se realizo un ajuste a depends_on para mejorar su funcionamiento, se agrego una funcionalidad nueva en caso de errores
 
   
+- **database:**
+  
+          database:
+            image: postgres:alpine #Opcion de cambio dependiendo de logica de negocio, dado que es una imagen de un servicio externo , para evitar temas de versiones deprecadas en un futuro, se puede usar tag de ultima version "postgres:latest"
+            volumes:
+              - pg_data:/var/lib/postgresql/data
+            environment:
+              POSTGRES_USER: ${{ secrets.POSTGRES_USER }}    #CORRECCION: no se dejan datos sensibles a simple vista, se puede aprovechar los secretos de github para guardar esta informacion, y llamarla en codigo
+              POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+              POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+            ports:
+              - "5432:5432"
+            networks:
+              - app_network
+            restart: unless-stopped  #Implementacion de reinicio para el contenedor, buena practica por si falla, le permite reiniciarse
+
+  Se identifico mejor en la imagen obtenida, se soluciono problema grave con datos sensibles quemados, se agrego una funcionalidad nueva en caso de errores
+
+  - **redis:**
+  
+          redis:
+            image: redis #Verificar version de la imagen que se esta usando y quemarla, para evitar posibles cambios de actualizaciones que afecten el servicio
+            container_name: redis #Dado que se trata de un servicio de almacenamiento, es buena opcion estipular un contenedor en caso de reinicio volver a obtener los datos registrados previamente
+            command: redis-server --requirepass "${{ secrets.REQUIRE_PASS }}" #Este es un dato sensible que debe guardarse en un secreto, se puede usar secretos de github y llamarlo
+            ports:
+              - "6379:6379"
+            restart: unless-stopped #Implementacion de reinicio para el contenedor, buena practica por si falla, le permite reiniciarse
+
+  Se identifica problema con imagen de redis al no tener version, funcionalidad implementada de container fijo, solucion de error grave de dato sensible quemado,  se agrego una funcionalidad nueva en caso de errores
+
+  - **redis:**
+ 
+            volumes:
+            pg_data:
+              driver_opts: #Para controlar el espacio de este volumen se puede especificar el tamaño
+                size: "20GB"
+
+  Se optimiza el tamaño del volumen a trabajar
+
+  - **networks:**
+ 
+          networks:
+            app_network:
+              driver: bridge
+              ipam: #COntrol de ip, se puede agregar esta opcion para controlar las ips de los recursos que van a utilizar esta network , esto permite generar medidas de seguridad para acceso a ips permitidas
+                config:
+                  - subnet: 192.168.1.0/12
+              driver_opts:
+                com.docker.network.bridge.enable_ip_masquerade: "true" #Opcion para habilitar el enmascaramiento de IP
+
+  Se optimiza el rango de ips a utilizar en la reds, se implementa habilitacion de enmascaramiento
+
