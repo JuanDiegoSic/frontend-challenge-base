@@ -78,11 +78,15 @@ ArgoCD.
 ### Solucion
 En este mismo repositorio se realizaron las modificaciones necesarias para el funcionamiento del pipeline y uso de ArgoCD
 #### Ejecucion en local
-        - Ejecucion de comando npm run build:
+
+- Ejecucion de comando npm run build:
+
 <img src="https://github.com/user-attachments/assets/4e76eba4-26bf-412b-996c-763d8dfb352f" width="60%"/>
-        - Archivo DockerFile creado y ejecucion:
+- Archivo DockerFile creado y ejecucion:
+  
 <img src="https://github.com/user-attachments/assets/d23ceb50-b64e-4c59-b0a5-8c2b2a1a38c0" width="60%"/>
-        - Pagina de inicio:
+- Pagina de inicio:
+  
 <img src="https://github.com/user-attachments/assets/db78414c-d815-4419-a823-4bb62a1d6fce" width="60%"/>
 
 
