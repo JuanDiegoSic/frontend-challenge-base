@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-challenge
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend-challenge
+  template:
+    metadata:
+      labels:
+        app: frontend-challenge
+    spec:
+      containers:
+      - name: frontend-challenge
+        image: ${{ secrets.DOCKER_USERNAME }}/frontend-challenge2:latest
+        ports:
+        - containerPort: 3000
