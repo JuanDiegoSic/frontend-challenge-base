@@ -1,6 +1,11 @@
-# Prueba tecnica  - Solucion por Juan Diego Sicachá Cortes
+<div align="left">
+  <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="gmail logo"  />
+  <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="linkedin logo"  />
+</div>
 
-Este repositorio contiene la solucion de los problemas planteados para la prueba tecnica de devops
+# Prueba técnica  - Solucion por Juan Diego Sicachá Cortes
+
+Este repositorio contiene la solucion de los problemas planteados para la prueba técnica de devops
 
 ---
 
@@ -14,36 +19,36 @@ Diseñar una arquitectura para implementar una aplicación web escalable. La sol
 - **Pipeline CI/CD:** Despliegues automáticos.
 - **Monitoreo del sistema:** Prometheus y Grafana.
 
-### Solucion
+### Solución
 ![Diseño CI/CD](https://github.com/user-attachments/assets/b144e8b5-e63f-4abd-9e97-09a7aa5f9085)
 
 La propuesta de diseño creada muestra un panorama de CI/CD que evidencia el flujo desde que el programador planea un cambio hasta que el usuario final utiliza el programa desplegado.
 - **CI Pipeline:**
 
-1. Planing: Proceso de analisis de nuevas mejoras al programa, solucion de bugs o cambios que afectan el programa 
-2. Code: Proceso donde el desarrollador empieza a codificar el feature desde su local, realizando cambios o creando nuevas lineas de codigo en un repositorio
+1. Planning: Proceso de análisis de nuevas mejoras al programa, solucion de bugs o cambios que afectan el programa 
+2. Code: Proceso donde el desarrollador empieza a codificar el feature desde su local, realizando cambios o creando nuevas lineas de código en un repositorio
 3. Build: Proceso donde sube sus cambios al repositorio para construir el nuevo proyecto listo para pruebas
-4. Unit Test: Proceso donde el desarrolador crea pruebas unitarias en su nuevo codigo para verificar la calidad del mismo, reduciendo asi el ingreso de bugs y que ayuda a verificar el funcionamiento no solo de sus cambios si no de todo el proyecto
+4. Unit Test: Proceso donde el desarrollador crea pruebas unitarias en su nuevo código para verificar la calidad del mismo, reduciendo asi el ingreso de bugs y que ayuda a verificar el funcionamiento no solo de sus cambios si no de todo el proyecto
   
 - **CD Pipeline:**
-    - **Doker:**
+    - **Docker:**
 
-      1. Release: Proceso de empaquetado de codigo para despliegue, cuenta con subproceso de generacion de contenedor a partir de Docker
-      2. DockerFile: Archivo que contiene la logica de empaquetado, donde verfica funcionamiento de codigo, identificando errores
-      3. Package proceso de empaquetado usando el dokerfile para cargar en docker todo el codigo nuevo en un paquete
-      4. Version: Proceso donde se realiza un versionamiento del paquete que realiza una identificacion, generalmente es un tag autoincremental o con la fecha de empaquetado
+      1. Release: Proceso de empaquetado de código para despliegue, cuenta con subproceso de generacion de contenedor a partir de Docker
+      2. DockerFile: Archivo que contiene la logica de empaquetado, donde verifica funcionamiento de código, identificando errores
+      3. Package proceso de empaquetado usando el dockerfile para cargar en docker todo el código nuevo en un paquete
+      4. Version: Proceso donde se realiza un versionamiento del paquete que realiza una identificación, generalmente es un tag autoincremental o con la fecha de empaquetado
       5. Container Registry: proceso donde se almacenan todos los paquetes de los repositorios, estos estan catalogados por microservicios y tag para identificar siempre el paquete mas reciente
-      6. Icono de github Action ya que se propone que todo este proceso de docker es posible automatizarlo desde esta herramienta, haciendo que sea transparente para el desarrolador todo este proceso y dandole como entrega el paquete y su tag
+      6. Icono de github Action ya que se propone que todo este proceso de docker es posible automatizarlo desde esta herramienta, haciendo que sea transparente para el desarrolLador todo este proceso y dandole como entrega el paquete y su tag
     - **Deploy:** Proceso en el que se realiza despliegue al cluster de imagen creando en docker, este deployment va directamente al cluster y puede usar una serie de comandos con Helm y kubectl para subir todos los recursos necesarios para el funcionamiento del microservicio
     - **Kubernetes:**
 
       1. Operate - Cluster: Hace referencia al orquestador, donde se ejecuta en tiempo real el programa desplegado y es el recurso principal en donde esta compuesto por microservicios, conexion de base de datos, configuracion de network, comunicacion con peticiones, etc 
-      2. Microservice: serie de yalm que componen un microservicio, para su funcionamiento y comunicacion con el gateway y otros recursos, requiere diferentes recursos como: 
+      2. Microservice: serie de yaml que componen un microservicio, para su funcionamiento y comunicacion con el gateway y otros recursos, requiere diferentes recursos como: 
                       - Deployment: contiene informacion de los recursos necesarios para el funcionamiento del servicio
                       - HPA: recursos que contiene informacion de replicas, esto permite que el microservicio sea autoincremental debido a que se define cuantos pods pueden estar disponibles segun su demanda
                       - PDB: recurso que garantiza disponibilidad minima
                       - Service: recurso que define reglas de acceso
-                      - ConfigMap: Recurso utlizado para almacenar datos de configuracion
+                      - ConfigMap: Recurso utilizado para almacenar datos de configuracion
     - **Grafana:**  
 
       1. Monitor: Herramienta que permite revisar el estado del cluster, permitiendo adelantarse a problemas o posibles inconvenientes
@@ -75,7 +80,7 @@ Crear un pipeline de CI/CD para una aplicación Node.js basado en el siguiente r
 - Desplegar la aplicación automáticamente en un clúster Kubernetes usando
 ArgoCD.
 
-### Solucion
+### Solución
 En este mismo repositorio se realizaron las modificaciones necesarias para el funcionamiento del pipeline y uso de ArgoCD
 #### Ejecucion en local
 
@@ -99,16 +104,16 @@ En este mismo repositorio se realizaron las modificaciones necesarias para el fu
   
 <img src="https://github.com/user-attachments/assets/2000bf12-ff91-402f-82b6-52b3c9fb4f2f" width="60%"/>
 
--Sincronizacion con ArgosCD:
+-Sincronización con ArgosCD:
   
 <img src="https://github.com/user-attachments/assets/fdd577d1-2222-4790-9000-48ae1f5779ae" width="60%"/>
 
 #### Archivo de configuración para el pipeline
-El siguiente link los llevara a ver el yaml creado para el CI/CD y sincronizacion con ArgoCD: https://github.com/JuanDiegoSic/frontend-challenge-base/blob/main/.github/workflows/pipeline.yaml
+El siguiente link los llevara a ver el yaml creado para el CI/CD y sincronización con ArgoCD: https://github.com/JuanDiegoSic/frontend-challenge-base/blob/main/.github/workflows/pipeline.yaml
 
 ##### Explicación
-- **Job build-CICD:** Este Job contiene los steps para montar la imagen a docker hub, cuenta con dos secretos que son el usuario y contraseña de dockerhub para montar el paquete en la cuente correspondiente
-        - Inicia con clonar el repositorio, ejecutar comandos de docker para construir, loguearse y hacer push al codigo
+- **Job build-CICD:** Este Job contiene los steps para montar la imagen a docker hub, cuenta con dos secretos que son el usuario y contraseña de dockerhub para montar el paquete en la cuenta correspondiente
+        - Inicia con clonar el repositorio, ejecutar comandos de docker para construir, loguearse y hacer push al código
   
 - **deploy-Argo:** Este Job contiene los steps para crear un cluster, instalar ArgosCD y sincronizar el servicio
         - Inicia con clonar el repositorio, instalar minikube para creear un cluster local en la maquina virtual, se instala ArgosCD, una vez creado el cluster , se implementan recursos (Archivos de configuración para ArgoCD) en cluster, se realiza portforward para ingresar a la interfaz de argoCD, se accede a credenciales genericas, se ejecuta comando de sincronizacion
@@ -126,7 +131,7 @@ En la carpeta "k8s" se crearon 4 archivos para el funcionamiento del servicio en
 ### Enunciado
 Basado en el siguiente docker compose docker-compose.yaml , corregir el archivo que está mal construído y optimizado
 
-### Solucion
+### Solución
 EN el siguiente link van a ver el yaml optimizado y arreglado , cuanta con comentarios acerca de cada uno de los cambios: https://github.com/JuanDiegoSic/frontend-challenge-base/blob/main/docker-compose.yaml
 
 - **app:**
@@ -153,7 +158,7 @@ EN el siguiente link van a ver el yaml optimizado y arreglado , cuanta con comen
             volumes:
               - pg_data:/var/lib/postgresql/data
             environment:
-              POSTGRES_USER: ${{ secrets.POSTGRES_USER }}    #CORRECCION: no se dejan datos sensibles a simple vista, se puede aprovechar los secretos de github para guardar esta informacion, y llamarla en codigo
+              POSTGRES_USER: ${{ secrets.POSTGRES_USER }}    #CORRECCION: no se dejan datos sensibles a simple vista, se puede aprovechar los secretos de github para guardar esta informacion, y llamarla en código
               POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
               POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
             ports:
