@@ -38,6 +38,27 @@ La propuesta de diseño creada muestra un panorama de CI/CD que evidencia el flu
     - **Kubernetes:**
 
             1. Operate - Cluster: Hace referencia al orquestador, donde se ejecuta en tiempo real el programa desplegado y es el recurso principal en donde esta compuesto por microservicios, conexion de base de datos, configuracion de network, comunicacion con peticiones, etc 
-            2. Microservice: serie de yalm que componen un microservicio, para su funcionamiento y comunicacion con el gateway y otros recursos, requiere diferentes recursos como: Deployment: contiene informacion de los recursos necesarios para el funcionamiento del servicio, HPA: recursos que contiene informacion de replicas, esto permite que el microservicio sea autoincremental debido a que se define cuantos pods pueden estar disponibles segun su demanda, PDB: recurso que garantiza disponibilidad minima, Service: recurso que define reglas de acceso
-  
+            2. Microservice: serie de yalm que componen un microservicio, para su funcionamiento y comunicacion con el gateway y otros recursos, requiere diferentes recursos como: 
+                            - Deployment: contiene informacion de los recursos necesarios para el funcionamiento del servicio
+                            - HPA: recursos que contiene informacion de replicas, esto permite que el microservicio sea autoincremental debido a que se define cuantos pods pueden estar disponibles segun su demanda
+                            - PDB: recurso que garantiza disponibilidad minima
+                            - Service: recurso que define reglas de acceso
+                            - ConfigMap: Recurso utlizado para almacenar datos de configuracion
+    - **Grafana:**  
+
+            1. Monitor: Herramienta que permite revisar el estado del cluster, permitiendo adelantarse a problemas o posibles inconvenientes
+            2. Dashboard: Herramienta dentro del monitor que ofrece informacion de los recursos y su estado
+            3. Alerts: Herramienta que permite alertar a los involucrados de problemas criticos en el cluster, ya sea de un microservicio o un recurso que no esta funcionando o esta en estado grave
+            4. Metrics: Herramienta que permite medir desde el tiempo el funcionamiento de servicios y revision de logs
+- **DataBase:**
+
+      1. Pvc: es una solicitud de almacenamiento persistente hecha por una aplicación
+      2. LoadBalancer: servicio que proporciona acceso externo a la base de datos a través de un balanceador de carga.
+      3. ReplicaSet: asegura que un número específico de Pods (réplicas)
+
+- **Network:**
+
+      1. Istio: Herramienta que opera toda la red del cluster, responsable de comunicar todos los recursos y asignar ips para identificarlos
+      2. Control Plane: Gestiona el estado deseado del clúster y actúa como "cerebro" del sistema
+      3. Load Balancer: Distribuye el tráfico de red entrante entre varios Pods o nodos de manera eficiente.
   
