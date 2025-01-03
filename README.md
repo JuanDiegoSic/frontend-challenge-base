@@ -91,8 +91,16 @@ En este mismo repositorio se realizaron las modificaciones necesarias para el fu
   
 <img src="https://github.com/user-attachments/assets/db78414c-d815-4419-a823-4bb62a1d6fce" width="60%"/>
 
+- Proyecto montado en cluster local con pods corriendo:
+  
+<img src="https://github.com/user-attachments/assets/62c04057-9a8a-4f22-9566-aa8de58210c4" width="60%"/>
 
+- Consumo y logs exitosos:
+  
+<img src="https://github.com/user-attachments/assets/2000bf12-ff91-402f-82b6-52b3c9fb4f2f" width="60%"/>
 
-
+-Sincronizacion con ArgosCD:
+  
+<img src="https://github.com/user-attachments/assets/fdd577d1-2222-4790-9000-48ae1f5779ae" width="60%"/>
 
   
