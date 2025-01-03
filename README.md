@@ -106,7 +106,19 @@ En este mismo repositorio se realizaron las modificaciones necesarias para el fu
 #### Archivo de configuración para el pipeline
 El siguiente link los llevara a ver el yaml creado para el CI/CD y sincronizacion con ArgoCD: https://github.com/JuanDiegoSic/frontend-challenge-base/blob/main/.github/workflows/pipeline.yaml
 
+##### Explicación
+- **Job build-CICD:** Este Job contiene los steps para montar la imagen a docker hub, cuenta con dos secretos que son el usuario y contraseña de dockerhub para montar el paquete en la cuente correspondiente
+        - Inicia con clonar el repositorio, ejecutar comandos de docker para construir, loguearse y hacer push al codigo
+  
+- **deploy-Argo:** Este Job contiene los steps para crear un cluster, instalar ArgosCD y sincronizar el servicio
+        - Inicia con clonar el repositorio, instalar minikube para creear un cluster local en la maquina virtual, se instala ArgosCD, una vez creado el cluster , se implementan recursos (Archivos de configuración para ArgoCD) en cluster, se realiza portforward para ingresar a la interfaz de argoCD, se accede a credenciales genericas, se ejecuta comando de sincronizacion
 
+#### Archivos de configuración para ArgoCD.
+En la carpeta "k8s" se crearon 4 archivos para el funcionamiento del servicio en el cluster y sincronizacion de ArgosCD
+- argo-app.yaml: Manifiesto de configuración utilizado por ArgoCD para definir y gestionar aplicaciones dentro de un clúster de Kubernetes. https://github.com/JuanDiegoSic/frontend-challenge-base/blob/main/k8s/argo-app.yaml
+- deployment.yaml: Permiten gestionar el ciclo de vida de las aplicaciones, incluyendo la creación, actualización y escalado de réplicas de Pods. https://github.com/JuanDiegoSic/frontend-challenge-base/blob/main/k8s/deployment.yaml
+- rolebinding.yaml: Se utiliza para crear un RoleBinding en Kubernetes, que asigna un Role o ClusterRole a un User. https://github.com/JuanDiegoSic/frontend-challenge-base/blob/main/k8s/rolebinding.yaml
+- service.yaml: recurso que expone una aplicación en ejecución en un conjunto de Pods como un servicio de red estable https://github.com/JuanDiegoSic/frontend-challenge-base/blob/main/k8s/service.yaml
 
 
   
