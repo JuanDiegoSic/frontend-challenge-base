@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: 'https://github.com/JuanDiegoSic/frontend-challenge-base'
     targetRevision: main
-    path: manifests
+    path: k8s
   project: default
   syncPolicy:
     automated:
