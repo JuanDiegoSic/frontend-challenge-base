@@ -64,6 +64,10 @@ jobs:
           kubectl create namespace argocd || echo "Namespace argocd already exists"
           kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
+      - name: Apply RoleBinding to grant permissions to ArgoCD admin
+        run: |
+          kubectl apply -f k8s/rolebinding.yaml
+
       - name: Wait for ArgoCD to be ready
         run: |
           kubectl rollout status deployment/argocd-server -n argocd
