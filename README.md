@@ -103,4 +103,10 @@ En este mismo repositorio se realizaron las modificaciones necesarias para el fu
   
 <img src="https://github.com/user-attachments/assets/fdd577d1-2222-4790-9000-48ae1f5779ae" width="60%"/>
 
+#### Archivo de configuración para el pipeline
+El siguiente link los llevara a ver el yaml creado para el CI/CD y sincronizacion con ArgoCD: https://github.com/JuanDiegoSic/frontend-challenge-base/blob/main/.github/workflows/pipeline.yaml
+
+
+
+
   
