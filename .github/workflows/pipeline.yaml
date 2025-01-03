@@ -106,8 +106,9 @@ jobs:
         run: |
           argocd app list
           if ! argocd app get frontend-challenge-app; then
-            echo "Application frontend-challenge-app does not exist in ArgoCD."
-            exit 1
+            echo "Application frontend-challenge-app does not exist in ArgoCD. Creating the application."
+            kubectl apply -f k8s/argo-app.yaml
+            exit 0  # Continúa si se crea la aplicación
           fi
 
       - name: Sync application with ArgoCD
