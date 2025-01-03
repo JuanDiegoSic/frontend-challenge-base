@@ -1,7 +1,3 @@
-<div align="left">
-  <img src="https://www.linkedin.com/in/juan-diego-sicach%C3%A1-cortes-785a3918b/?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="linkedin logo"  />
-</div>
-
 # Prueba técnica  - Solucion por Juan Diego Sicachá Cortes
 
 Este repositorio contiene la solucion de los problemas planteados para la prueba técnica de devops
