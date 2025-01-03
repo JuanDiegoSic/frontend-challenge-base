@@ -77,7 +77,9 @@ jobs:
         id: argocd_url
         run: |
           export ARGOCD_SERVER=$(kubectl get svc argocd-server -n argocd -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
-          echo "ArgoCD server URL: $ARGOCD_SERVER"
+          if [ -z "$ARGOCD_SERVER" ]; then
+            ARGOCD_SERVER="localhost:8080"  # Fallback in case loadBalancer not available
+          fi
           echo "ARGOCD_SERVER=$ARGOCD_SERVER" >> $GITHUB_ENV
 
       - name: Get ArgoCD password
